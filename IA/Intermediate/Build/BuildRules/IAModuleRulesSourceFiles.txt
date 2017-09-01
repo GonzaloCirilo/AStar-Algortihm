@@ -1,0 +1,3 @@
+C:\Users\Usuario\Documents\Unreal Projects\IA\Source\IA\IA.Build.cs
+C:\Users\Usuario\Documents\Unreal Projects\IA\Source\IA.Target.cs
+C:\Users\Usuario\Documents\Unreal Projects\IA\Source\IAEditor.Target.cs

@@ -1,0 +1,611 @@
+﻿Log file open, 09/01/17 00:07:21
+LogInit:Display: Running engine for game: IA
+LogPlatformFile: Not using cached read wrapper
+LogInit:Display: RandInit(129183210) SRandInit(129183210).
+LogTaskGraph: Started task graph with 5 named threads and 6 total threads with 1 sets of task threads.
+LogStats: Stats thread started at 0.119449
+LogInit: Using libcurl 7.47.1
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.0.2g
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = false  - Libcurl will NOT verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+LogInit: Build: ++UE4+Release-4.16-CL-3561208
+LogInit: Engine Version: 4.16.3-3561208+++UE4+Release-4.16
+LogInit: Compatible Engine Version: 4.16.0-3452394+++UE4+Release-4.16
+LogInit: Net CL: 3452394
+LogDevObjectVersion: Number of dev versions registered: 16
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 9
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 2
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 17
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 23
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 0
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 0
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 15
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 4
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 0
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 1
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 3
+LogInit: Compiled (64-bit): Jul 28 2017 11:49:47
+LogInit: Compiled with Visual C++: 19.00.24215.01
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.16
+LogInit: Command line: 
+LogInit: Base directory: C:/Program Files/Epic Games/UE_4.16/Engine/Binaries/Win64/
+LogInit: Installed Engine Build: 1
+LogInit: Presizing for max 8388607 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogInit: Object subsystem initialized
+[2017.09.01-05.07.23:243][  0]LogInit: Selected Device Profile: [Windows]
+[2017.09.01-05.07.23:243][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2017.09.01-05.07.23:332][  0]LogInit: Computer: DESKTOP-HB0C1U8
+[2017.09.01-05.07.23:332][  0]LogInit: User: Usuario
+[2017.09.01-05.07.23:332][  0]LogInit: CPU Page size=4096, Cores=2
+[2017.09.01-05.07.23:333][  0]LogInit: High frequency timer resolution =2.340366 MHz
+[2017.09.01-05.07.23:333][  0]LogMemory: Memory total: Physical=7.9GB (8GB approx)
+[2017.09.01-05.07.23:333][  0]LogMemory: Platform Memory Stats for Windows
+[2017.09.01-05.07.23:333][  0]LogMemory: Process Physical Memory: 273.11 MB used, 273.11 MB peak
+[2017.09.01-05.07.23:333][  0]LogMemory: Process Virtual Memory: 266.44 MB used, 266.44 MB peak
+[2017.09.01-05.07.23:333][  0]LogMemory: Physical Memory: 4696.61 MB used,  3365.77 MB free, 8062.37 MB total
+[2017.09.01-05.07.23:333][  0]LogMemory: Virtual Memory: 642.43 MB used,  3365.77 MB free, 134217728.00 MB total
+[2017.09.01-05.07.23:855][  0]LogInit: Overriding language with editor language configuration option (en).
+[2017.09.01-05.07.23:855][  0]LogInit: Overriding locale with editor locale configuration option (en).
+[2017.09.01-05.07.34:677][  0]LogD3D11RHI: D3D11 adapters:
+[2017.09.01-05.07.35:122][  0]LogD3D11RHI:    0. 'NVIDIA GeForce 940M' (Feature Level 11_0)
+[2017.09.01-05.07.35:122][  0]LogD3D11RHI:       2020/0/4031 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:1, VendorId:0x10de
+[2017.09.01-05.07.35:129][  0]LogD3D11RHI:    1. 'Intel(R) HD Graphics 5500' (Feature Level 11_0)
+[2017.09.01-05.07.35:129][  0]LogD3D11RHI:       128/0/4031 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x8086
+[2017.09.01-05.07.35:131][  0]LogD3D11RHI:    2. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2017.09.01-05.07.35:131][  0]LogD3D11RHI:       0/0/4031 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2017.09.01-05.07.35:131][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2017.09.01-05.07.35:141][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2017.09.01-05.07.35:141][  0]LogD3D11RHI:     GPU DeviceId: 0x1347 (for the marketing name, search the web for "GPU Device Id")
+[2017.09.01-05.07.35:141][  0]LogWindows: EnumDisplayDevices:
+[2017.09.01-05.07.35:142][  0]LogWindows:    0. 'Intel(R) HD Graphics 5500' (P:1 D:1)
+[2017.09.01-05.07.35:144][  0]LogWindows:    1. 'Intel(R) HD Graphics 5500' (P:0 D:0)
+[2017.09.01-05.07.35:145][  0]LogWindows:    2. 'Intel(R) HD Graphics 5500' (P:0 D:0)
+[2017.09.01-05.07.35:147][  0]LogWindows: DebugString: PrimaryIsNotTheChoosenAdapter PrimaryIsNotTheChoosenAdapter PrimaryIsNotTheChoosenAdapter FoundDriverCount:0 
+[2017.09.01-05.07.35:147][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce 940M
+[2017.09.01-05.07.35:147][  0]LogD3D11RHI:   Driver Version: Unknown (internal:Unknown, unified:Unknown)
+[2017.09.01-05.07.35:147][  0]LogD3D11RHI:      Driver Date: Unknown
+[2017.09.01-05.07.35:147][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2017.09.01-05.07.35:174][  0]LogD3D11RHI: Async texture creation enabled
+[2017.09.01-05.07.35:194][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 2)
+[2017.09.01-05.07.35:196][  0]LogShaderCompilers: Guid format shader working directory is -12 characters bigger than the processId version (../../../../../../Users/Usuario/Documents/Unreal Projects/IA/Intermediate/Shaders/WorkingDirectory/7304/).
+[2017.09.01-05.07.35:196][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Usuario/AppData/Local/Temp/UnrealShaderWorkingDir/EEAB458845618FAC8EF2FDA842AEF528/'.
+[2017.09.01-05.07.35:196][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
+[2017.09.01-05.07.46:049][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
+[2017.09.01-05.07.46:443][  0]LogTemp:Display: Loaded TP MacClientTargetPlatform
+[2017.09.01-05.07.46:722][  0]LogTemp:Display: Loaded TP MacNoEditorTargetPlatform
+[2017.09.01-05.07.46:991][  0]LogTemp:Display: Loaded TP MacServerTargetPlatform
+[2017.09.01-05.07.47:334][  0]LogTemp:Display: Loaded TP MacTargetPlatform
+[2017.09.01-05.07.47:602][  0]LogTemp:Display: Loaded TP WindowsClientTargetPlatform
+[2017.09.01-05.07.47:888][  0]LogTemp:Display: Loaded TP WindowsNoEditorTargetPlatform
+[2017.09.01-05.07.48:176][  0]LogTemp:Display: Loaded TP WindowsServerTargetPlatform
+[2017.09.01-05.07.48:463][  0]LogTemp:Display: Loaded TP WindowsTargetPlatform
+[2017.09.01-05.07.48:844][  0]LogTemp:Display: Loaded TP AndroidTargetPlatform
+[2017.09.01-05.07.49:111][  0]LogTemp:Display: Loaded TP Android_ASTCTargetPlatform
+[2017.09.01-05.07.49:377][  0]LogTemp:Display: Loaded TP Android_ATCTargetPlatform
+[2017.09.01-05.07.49:658][  0]LogTemp:Display: Loaded TP Android_DXTTargetPlatform
+[2017.09.01-05.07.49:937][  0]LogTemp:Display: Loaded TP Android_ETC1TargetPlatform
+[2017.09.01-05.07.50:196][  0]LogTemp:Display: Loaded TP Android_ETC2TargetPlatform
+[2017.09.01-05.07.50:731][  0]LogTemp:Display: Loaded TP Android_MultiTargetPlatform
+[2017.09.01-05.07.50:731][  0]LogTemp:Display: Loaded TP Android_PVRTCTargetPlatform
+[2017.09.01-05.07.50:981][  0]LogTemp:Display: Loaded TP HTML5TargetPlatform
+[2017.09.01-05.07.51:431][  0]LogTemp:Display: Loaded TP IOSTargetPlatform
+[2017.09.01-05.07.51:632][  0]LogTemp:Display: Loaded TP TVOSTargetPlatform
+[2017.09.01-05.07.51:900][  0]LogTemp:Display: Loaded TP LinuxClientTargetPlatform
+[2017.09.01-05.07.52:190][  0]LogTemp:Display: Loaded TP LinuxNoEditorTargetPlatform
+[2017.09.01-05.07.52:455][  0]LogTemp:Display: Loaded TP LinuxServerTargetPlatform
+[2017.09.01-05.07.52:935][  0]LogTemp:Display: Loaded TP LinuxTargetPlatform
+[2017.09.01-05.07.52:935][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2017.09.01-05.07.56:105][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache: Loaded boot cache 0.15s 90MB C:/Users/Usuario/AppData/Local/UnrealEngine/4.16/DerivedDataCache/Boot.ddc.
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache:Display: Loaded Boot cache: C:/Users/Usuario/AppData/Local/UnrealEngine/4.16/DerivedDataCache/Boot.ddc
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/Usuario/Documents/Unreal Projects/IA/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/Usuario/Documents/Unreal Projects/IA/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2017.09.01-05.07.56:258][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2017.09.01-05.07.56:286][  0]LogDerivedDataCache:Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2017.09.01-05.07.56:299][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Usuario/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2017.09.01-05.07.56:311][  0]LogMaterial: Verifying Global Shaders for PCD3D_SM5
+[2017.09.01-05.07.56:311][  0]LogSlate: Using Freetype 2.6.0
+[2017.09.01-05.07.56:397][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2017.09.01-05.07.56:397][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2017.09.01-05.08.11:454][  0]LogInit: Selected Device Profile: [Windows]
+[2017.09.01-05.08.11:580][  0]LogContentStreaming: Texture pool size is 0.00 MB
+[2017.09.01-05.08.12:324][  0]LogMeshUtilities: Using QuadricMeshReduction for automatic static mesh reduction
+[2017.09.01-05.08.12:737][  0]LogSimplygon: Simplygon DLL not present - disabling.
+[2017.09.01-05.08.13:083][  0]LogMeshUtilities: Using SimplygonSwarm for distributed automatic mesh merging
+[2017.09.01-05.08.13:083][  0]LogMeshUtilities: No automatic skeletal mesh reduction module available
+[2017.09.01-05.08.13:083][  0]LogMeshUtilities: No automatic mesh merging module available
+[2017.09.01-05.08.15:438][  0]LogNetVersion: IA , NetCL: 3452394, EngineNetVer: 2, GameNetVer: 0 (Checksum: 4275716318)
+[2017.09.01-05.08.15:640][  0]LogAssetRegistry: FAssetRegistry took 0.0412 seconds to start up
+[2017.09.01-05.08.16:915][  0]LogPackageLocalizationCache: Processed 4 localized package path(s) for 1 prioritized culture(s) in 1.108906 seconds
+[2017.09.01-05.08.16:939][  0]LogUObjectArray: 34194 objects as part of root set at end of initial load.
+[2017.09.01-05.08.16:939][  0]LogUObjectAllocator: 7260424 out of 0 bytes used by permanent object pool.
+[2017.09.01-05.08.16:939][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2017.09.01-05.08.18:023][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2017.09.01-05.09.43:950][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2017.09.01-05.09.44:172][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2017.09.01-05.09.49:465][  0]LogMaterial: Uniform references updated for custom material expression Custom.
+[2017.09.01-05.09.53:270][  0]SourceControl: Info Source control is disabled
+[2017.09.01-05.09.54:454][  0]SourceControl: Info Source control is disabled
+[2017.09.01-05.09.54:872][  0]SourceControl: Info Source control is disabled
+[2017.09.01-05.09.55:284][  0]SourceControl: Info Source control is disabled
+[2017.09.01-05.10.00:721][  0]LogLinker:Warning: Can't find file '/Game/VehicleAdvBP/AdvancedVehicleOverview'
+[2017.09.01-05.10.00:721][  0]LogLinker:Warning: Can't find file '/Game/VehicleAdvBP/AdvancedVehicleOverview'
+[2017.09.01-05.10.00:752][  0]LogUObjectGlobals:Warning: Failed to find object 'Class /Game/VehicleAdvBP/AdvancedVehicleOverview.AdvancedVehicleOverview_C'
+[2017.09.01-05.10.09:420][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2017.09.01-05.10.15:672][  0]LogEngine: Initializing Engine...
+[2017.09.01-05.10.15:751][  0]LogHMD: Failed to initialize OpenVR with code 110
+[2017.09.01-05.10.17:269][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: Construct from data asset -  0.000 s
+[2017.09.01-05.10.17:270][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: GameplayTagTreeChangedEvent.Broadcast -  0.000 s
+[2017.09.01-05.10.19:781][  0]LogAIModule: Creating AISystem for world Untitled
+[2017.09.01-05.10.20:483][  0]LogInit: XAudio2 using 'Speakers (Realtek High Definition Audio)' : 2 channels at 48 kHz using 32 bits per sample (channel mask 0x3)
+[2017.09.01-05.10.21:111][  0]LogInit: FAudioDevice initialized.
+[2017.09.01-05.10.21:189][  0]LogDerivedDataCache: Saved boot cache 0.07s 90MB C:/Users/Usuario/AppData/Local/UnrealEngine/4.16/DerivedDataCache/Boot.ddc.
+[2017.09.01-05.10.21:204][  0]LogInit: Texture streaming: Enabled
+[2017.09.01-05.10.22:929][  0]LogEngineSessionManager: EngineSessionManager initialized
+[2017.09.01-05.10.26:838][  0]LogInit: Transaction tracking system initialized
+[2017.09.01-05.10.32:538][  0]BlueprintLog: New page: Editor Load
+[2017.09.01-05.10.54:860][  0]LocalizationService: Info Localization service is disabled
+[2017.09.01-05.11.10:156][  0]LogConsoleResponse:Display: 
+[2017.09.01-05.11.18:209][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Usuario/Documents/Unreal Projects/IA/Content/' took 0.10s
+[2017.09.01-05.11.18:209][  0]LogCook:Display: Max memory allowance for cook 16384mb min free memory 0mb
+[2017.09.01-05.11.18:238][  0]LogCook:Display: Mobile HDR setting 1
+[2017.09.01-05.11.38:024][  0]SourceControl: Info Source control is disabled
+[2017.09.01-05.11.38:469][  0]Cmd: MAP LOAD FILE="../../../../../../Users/Usuario/Documents/Unreal Projects/IA/Content/TwinStickBP/Maps/TwinStickExampleMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2017.09.01-05.11.38:918][  0]LightingResults: New page: Lighting Build
+[2017.09.01-05.11.41:161][  0]MapCheck: New page: Map Check
+[2017.09.01-05.11.41:162][  0]LightingResults: New page: Lighting Build
+[2017.09.01-05.11.56:572][  0]LogAIModule: Creating AISystem for world TwinStickExampleMap
+[2017.09.01-05.11.58:793][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2017.09.01-05.11.59:254][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2017.09.01-05.11.59:793][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 525.314ms to complete.
+[2017.09.01-05.11.59:802][  0]LogFileHelpers: Loading map 'TwinStickExampleMap' took 21.650
+[2017.09.01-05.12.03:124][  0]LogWindowsTextInputMethodSystem:Display: IME system now deactivated.
+[2017.09.01-05.12.06:944][  0]LogCollectionManager: Loaded 0 collections in 0.003774 seconds
+[2017.09.01-05.12.07:688][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Usuario/Documents/Unreal Projects/IA/Saved/Collections/' took 0.01s
+[2017.09.01-05.12.07:688][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Usuario/Documents/Unreal Projects/IA/Content/Developers/Usuario/Collections/' took 0.01s
+[2017.09.01-05.12.07:688][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Usuario/Documents/Unreal Projects/IA/Content/Collections/' took 0.01s
+[2017.09.01-05.12.07:688][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000005 seconds
+[2017.09.01-05.12.07:803][  0]LogContentBrowser: Native class hierarchy populated in 0.0988 seconds. Added 2331 classes and 493 folders.
+[2017.09.01-05.12.08:912][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0047 seconds. Added 0 classes and 0 folders.
+[2017.09.01-05.12.14:719][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0125 seconds. Added 0 classes and 0 folders.
+[2017.09.01-05.12.15:508][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0137 seconds. Added 1 classes and 2 folders.
+[2017.09.01-05.12.17:458][  0]LogCrashTracker: Crashtracker disabled due to settings.
+[2017.09.01-05.12.18:272][  0]LogSlate: Took 0.065156 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2017.09.01-05.12.18:316][  0]LogSlate: Took 0.034766 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2017.09.01-05.12.18:500][  0]LogSlate: Took 0.048437 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2017.09.01-05.12.18:540][  0]LogSlate: Took 0.038369 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/DroidSansMono.ttf' (77K)
+[2017.09.01-05.12.19:670][  0]LogRenderer: Reallocating scene render targets to support 1020x404 NumSamples 1 (Frame:1).
+[2017.09.01-05.12.22:206][  0]LogUObjectGlobals:Warning: Failed to find object 'Class None.'
+[2017.09.01-05.12.22:629][  0]LogContentBrowser: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0066 seconds. Added 1 classes and 2 folders.
+[2017.09.01-05.12.22:630][  0]LogLoad: (Engine Initialization) Total time: 305.67 seconds
+[2017.09.01-05.12.22:630][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 3.44 seconds
+[2017.09.01-05.12.22:630][  0]LogExternalProfiler: Found external profiler: VSPerf
+[2017.09.01-05.12.22:631][  0]LogExternalProfiler: Using external profiler: VSPerf
+[2017.09.01-05.12.22:706][  0]LogOcInput: OculusInput pre-init called
+[2017.09.01-05.12.22:718][  0]LogHMD: Starting GearVRController plugin
+[2017.09.01-05.12.22:960][  0]LogContentStreaming: Texture pool size now 400 MB
+[2017.09.01-05.12.24:061][  3]LogAssetRegistry: Asset discovery search completed in 248.4428 seconds
+[2017.09.01-05.12.24:068][  3]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000001 seconds (found 0 objects)
+[2017.09.01-05.12.24:069][  3]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000758 seconds (updated 0 objects)
+[2017.09.01-05.12.27:837][198]LogTemp: Repeting last play command: Selected Viewport
+[2017.09.01-05.12.28:029][198]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.12.28:055][198]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2017.09.01-05.12.28:128][198]PIE: New page: PIE session: TwinStickExampleMap (Aug 31, 2017, 7:12:28 PM)
+[2017.09.01-05.12.28:128][198]LogPlayLevel: Creating play world package: /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap
+[2017.09.01-05.12.28:173][198]LogPlayLevel: PIE: StaticDuplicateObject took: (0.044821s)
+[2017.09.01-05.12.28:175][198]LogAIModule: Creating AISystem for world TwinStickExampleMap
+[2017.09.01-05.12.28:176][198]LogPlayLevel: PIE: World Init took: (0.002641s)
+[2017.09.01-05.12.28:191][198]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap to /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap.TwinStickExampleMap (0.062615s)
+[2017.09.01-05.12.28:309][198]LogInit: XAudio2 using 'Speakers (Realtek High Definition Audio)' : 2 channels at 48 kHz using 32 bits per sample (channel mask 0x3)
+[2017.09.01-05.12.28:365][198]LogInit: FAudioDevice initialized.
+[2017.09.01-05.12.28:428][198]LogLoad: Game class is 'TwinStickGameMode_C'
+[2017.09.01-05.12.28:537][198]LogWorld: Bringing World /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap.TwinStickExampleMap up for play (max tick rate 60) at 2017.09.01-00.12.28
+[2017.09.01-05.12.28:647][198]LogWorld: Bringing up level for play took: 0.095112
+[2017.09.01-05.12.29:401][198]LogContentBrowser: Native class hierarchy updated for 'MovieSceneCapture' in 0.0118 seconds. Added 11 classes and 0 folders.
+[2017.09.01-05.12.29:443][198]PIE: Info Play in editor start time for /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap 2.265
+[2017.09.01-05.12.29:444][198]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.12.29:527][198]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:744][199]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:801][200]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:824][201]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:879][202]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:904][203]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:929][204]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:954][205]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:977][206]LogTemp:Warning: DID IT
+[2017.09.01-05.12.29:994][207]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:011][208]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:027][209]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:044][210]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:061][211]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:077][212]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:094][213]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:111][214]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:127][215]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:144][216]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:161][217]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:177][218]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:194][219]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:211][220]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:227][221]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:244][222]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:261][223]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:277][224]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:294][225]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:311][226]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:327][227]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:344][228]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:361][229]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:378][230]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:394][231]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:411][232]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:427][233]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:444][234]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:461][235]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:477][236]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:494][237]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:510][238]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:527][239]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:544][240]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:561][241]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:577][242]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:594][243]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:611][244]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:627][245]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:644][246]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:661][247]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:678][248]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:694][249]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:711][250]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:727][251]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:744][252]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:761][253]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:777][254]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:794][255]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:811][256]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:828][257]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:844][258]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:861][259]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:878][260]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:894][261]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:911][262]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:927][263]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:944][264]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:961][265]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:977][266]LogTemp:Warning: DID IT
+[2017.09.01-05.12.30:994][267]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:011][268]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:027][269]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:044][270]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:061][271]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:077][272]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:094][273]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:111][274]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:128][275]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:144][276]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:161][277]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:177][278]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:194][279]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:211][280]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:228][281]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:244][282]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:261][283]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:278][284]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:294][285]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:311][286]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:328][287]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:344][288]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:361][289]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:378][290]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:394][291]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:411][292]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:427][293]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:444][294]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:461][295]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:478][296]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:494][297]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:511][298]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:528][299]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:544][300]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:561][301]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:577][302]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:594][303]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:611][304]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:627][305]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:644][306]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:661][307]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:678][308]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:694][309]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:711][310]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:727][311]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:744][312]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:761][313]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:778][314]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:794][315]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:811][316]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:828][317]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:844][318]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:861][319]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:877][320]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:894][321]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:911][322]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:927][323]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:944][324]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:961][325]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:978][326]LogTemp:Warning: DID IT
+[2017.09.01-05.12.31:994][327]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:011][328]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:027][329]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:044][330]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:061][331]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:078][332]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:094][333]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:111][334]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:127][335]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:144][336]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:161][337]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:178][338]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:194][339]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:211][340]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:228][341]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:244][342]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:261][343]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:278][344]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:294][345]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:311][346]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:328][347]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:344][348]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:361][349]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:377][350]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:394][351]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:411][352]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:427][353]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:444][354]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:461][355]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:477][356]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:494][357]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:511][358]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:528][359]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:544][360]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:561][361]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:577][362]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:594][363]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:611][364]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:627][365]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:644][366]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:661][367]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:677][368]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:694][369]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:711][370]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:728][371]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:744][372]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:761][373]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:778][374]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:794][375]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:811][376]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:828][377]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:844][378]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:861][379]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:878][380]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:894][381]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:911][382]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:928][383]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:944][384]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:961][385]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:978][386]LogTemp:Warning: DID IT
+[2017.09.01-05.12.32:994][387]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:011][388]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:028][389]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:044][390]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:061][391]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:078][392]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:095][393]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:111][394]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:128][395]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:144][396]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:161][397]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:177][398]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:194][399]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:211][400]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:227][401]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:244][402]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:261][403]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:277][404]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:294][405]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:311][406]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:327][407]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:344][408]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:361][409]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:378][410]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:394][411]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:411][412]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:428][413]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:444][414]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:461][415]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:478][416]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:494][417]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:511][418]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:528][419]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:544][420]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:561][421]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:577][422]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:594][423]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:611][424]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:628][425]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:645][426]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:661][427]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:678][428]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:694][429]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:711][430]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:728][431]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:745][432]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:761][433]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:778][434]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:794][435]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:811][436]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:828][437]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:844][438]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:861][439]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:878][440]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:894][441]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:911][442]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:928][443]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:944][444]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:961][445]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:977][446]LogTemp:Warning: DID IT
+[2017.09.01-05.12.33:995][447]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:011][448]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:028][449]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:044][450]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:061][451]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:078][452]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:094][453]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:111][454]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:128][455]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:144][456]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:161][457]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:178][458]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:194][459]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:211][460]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:227][461]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:245][462]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:261][463]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:278][464]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:294][465]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:311][466]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:328][467]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:344][468]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:361][469]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:378][470]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:394][471]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:411][472]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:428][473]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:444][474]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:461][475]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:478][476]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:494][477]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:511][478]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:528][479]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:545][480]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:561][481]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:578][482]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:594][483]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:611][484]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:628][485]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:644][486]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:661][487]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:678][488]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:695][489]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:711][490]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:728][491]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:745][492]LogTemp:Warning: DID IT
+[2017.09.01-05.12.34:747][492]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.12.34:836][492]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.12.45:668][715]Candidate modules for hot reload:
+[2017.09.01-05.12.45:668][715]  IA
+[2017.09.01-05.12.45:680][715]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.16/Engine/Binaries/DotNET/UnrealBuildTool.exe IA -ModuleWithSuffix IA 4141 Win64 Development -editorrecompile -canskiplink "C:/Users/Usuario/Documents/Unreal Projects/IA/IA.uproject" ]
+[2017.09.01-05.12.45:845][715]Warning: Starting HotReload took  0.8s.
+[2017.09.01-05.15.09:669][185]CompilerResultsLog: New page: Compilation - Aug 31, 2017, 7:15:09 PM
+[2017.09.01-05.15.09:669][185]CompilerResultsLog: Info Compiling game modules for hot reload
+[2017.09.01-05.15.09:670][185]CompilerResultsLog: Info Parsing headers for IAEditor
+[2017.09.01-05.15.09:670][185]CompilerResultsLog: Info   Running UnrealHeaderTool "C:\Users\Usuario\Documents\Unreal Projects\IA\IA.uproject" "C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\IAEditor\Development\IAEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+[2017.09.01-05.15.09:671][185]CompilerResultsLog: Info Reflection code generated for IAEditor in 13.5292373 seconds
+[2017.09.01-05.15.09:671][185]CompilerResultsLog:Error: Error C:\Users\Usuario\Documents\Unreal Projects\IA\Source\IA\PathAIController.cpp(1) : error: Expected PathAIController.h to be first header included.
+[2017.09.01-05.15.09:672][185]CompilerResultsLog: Info Build canceled.
+[2017.09.01-05.15.09:673][185]LogMainFrame: MainFrame: Module compiling took 144.146 seconds
+[2017.09.01-05.15.09:673][185]Warning: HotReload failed, recompile failed
+[2017.09.01-05.15.41:914][588]Candidate modules for hot reload:
+[2017.09.01-05.15.41:914][588]  IA
+[2017.09.01-05.15.41:915][588]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.16/Engine/Binaries/DotNET/UnrealBuildTool.exe IA -ModuleWithSuffix IA 3957 Win64 Development -editorrecompile -canskiplink "C:/Users/Usuario/Documents/Unreal Projects/IA/IA.uproject" ]
+[2017.09.01-05.15.42:011][588]Warning: Starting HotReload took  0.2s.
+[2017.09.01-05.19.57:339][670]CompilerResultsLog: New page: Compilation - Aug 31, 2017, 7:19:57 PM
+[2017.09.01-05.19.57:340][670]CompilerResultsLog: Info Compiling game modules for hot reload
+[2017.09.01-05.19.57:340][670]CompilerResultsLog: Info Parsing headers for IAEditor
+[2017.09.01-05.19.57:341][670]CompilerResultsLog: Info   Running UnrealHeaderTool "C:\Users\Usuario\Documents\Unreal Projects\IA\IA.uproject" "C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\IAEditor\Development\IAEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+[2017.09.01-05.19.57:341][670]CompilerResultsLog: Info Reflection code generated for IAEditor in 9.4876844 seconds
+[2017.09.01-05.19.57:341][670]CompilerResultsLog: Info Performing 4 actions (2 in parallel)
+[2017.09.01-05.19.57:342][670]CompilerResultsLog: Info IA.generated.cpp
+[2017.09.01-05.19.57:342][670]CompilerResultsLog: Info PathAIController.cpp
+[2017.09.01-05.19.57:342][670]CompilerResultsLog: Info [3/4] Link UE4Editor-IA-3957.dll
+[2017.09.01-05.19.57:342][670]CompilerResultsLog: Info [4/4] Link UE4Editor-IA-3957.lib
+[2017.09.01-05.19.57:342][670]CompilerResultsLog: Info    Creando biblioteca C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-IA-3957.lib y objeto C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-IA-3957.exp
+[2017.09.01-05.19.57:343][670]CompilerResultsLog: Info    Creando biblioteca C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-IA-3957.suppressed.lib y objeto C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-IA-3957.suppressed.exp
+[2017.09.01-05.19.57:344][670]CompilerResultsLog: Info Total build time: 254.56 seconds (Local executor: 224.75 seconds)
+[2017.09.01-05.19.57:344][670]LogMainFrame: MainFrame: Module compiling took 255.439 seconds
+[2017.09.01-05.19.57:984][670]LogContentBrowser: Native class hierarchy updated for 'IA' in 0.0121 seconds. Added 2 classes and 2 folders.
+[2017.09.01-05.19.57:988][670]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
+[2017.09.01-05.19.59:543][670]LogContentBrowser: Native class hierarchy populated in 0.0386 seconds. Added 2333 classes and 497 folders.
+[2017.09.01-05.19.59:916][670]Display: HotReload took 258.1s.
+[2017.09.01-05.20.21:065][929]LogTemp: Repeting last play command: Selected Viewport
+[2017.09.01-05.20.21:087][929]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.20.21:088][929]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2017.09.01-05.20.21:089][929]PIE: New page: PIE session: TwinStickExampleMap (Aug 31, 2017, 7:20:21 PM)
+[2017.09.01-05.20.21:089][929]LogPlayLevel: Creating play world package: /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap
+[2017.09.01-05.20.21:099][929]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010264s)
+[2017.09.01-05.20.21:102][929]LogAIModule: Creating AISystem for world TwinStickExampleMap
+[2017.09.01-05.20.21:102][929]LogPlayLevel: PIE: World Init took: (0.002964s)
+[2017.09.01-05.20.21:103][929]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap to /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap.TwinStickExampleMap (0.014159s)
+[2017.09.01-05.20.21:140][929]LogInit: XAudio2 using 'Speakers (Realtek High Definition Audio)' : 2 channels at 48 kHz using 32 bits per sample (channel mask 0x3)
+[2017.09.01-05.20.21:164][929]LogInit: FAudioDevice initialized.
+[2017.09.01-05.20.21:208][929]LogLoad: Game class is 'TwinStickGameMode_C'
+[2017.09.01-05.20.21:211][929]LogWorld: Bringing World /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap.TwinStickExampleMap up for play (max tick rate 60) at 2017.09.01-00.20.21
+[2017.09.01-05.20.21:212][929]LogWorld: Bringing up level for play took: 0.002992
+[2017.09.01-05.20.21:213][929]PIE: Info Play in editor start time for /Game/TwinStickBP/Maps/UEDPIE_0_TwinStickExampleMap 0.036
+[2017.09.01-05.20.21:214][929]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel' has LevelScriptBlueprint '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap' with GeneratedClass '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap_C' with ClassGeneratedBy '/Game/TwinStickBP/Maps/TwinStickExampleMap.TwinStickExampleMap:PersistentLevel.TwinStickExampleMap'
+[2017.09.01-05.20.40:785][929]LogCrashTracker: 
+
+
+[2017.09.01-05.20.40:785][929]LogCrashTracker: 
+
+
+[2017.09.01-05.20.40:785][929]LogWindows:Error: === Critical error: ===
+[2017.09.01-05.20.40:785][929]LogWindows:Error: 
+[2017.09.01-05.20.40:785][929]LogWindows:Error: Fatal error!
+[2017.09.01-05.20.40:786][929]LogWindows:Error: 
+[2017.09.01-05.20.40:786][929]LogWindows:Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x00000178
+[2017.09.01-05.20.40:786][929]LogWindows:Error: 
+[2017.09.01-05.20.40:786][929]LogWindows:Error: UE4Editor-IA-3957.dll!APathAIController::Tick() [c:\users\usuario\documents\unreal projects\ia\source\ia\pathaicontroller.cpp:43]
+[2017.09.01-05.20.40:787][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F06998FA
+[2017.09.01-05.20.40:787][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000EFD6BA66
+[2017.09.01-05.20.40:788][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F0D4379B
+[2017.09.01-05.20.40:788][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F0D4A17B
+[2017.09.01-05.20.40:788][929]LogWindows:Error: UE4Editor-Core.dll!0x0000000000CD4D8C
+[2017.09.01-05.20.40:788][929]LogWindows:Error: UE4Editor-Core.dll!0x0000000000CD51AD
+[2017.09.01-05.20.40:789][929]LogWindows:Error: UE4Editor-Core.dll!0x0000000000CEFA66
+[2017.09.01-05.20.40:789][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F0D66662
+[2017.09.01-05.20.40:789][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F0D6BBC2
+[2017.09.01-05.20.40:789][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F068E504
+[2017.09.01-05.20.40:790][929]LogWindows:Error: UE4Editor-Engine.dll!0x00000000F06965CF
+[2017.09.01-05.20.40:790][929]LogWindows:Error: UE4Editor-UnrealEd.dll!0x00000000EE8A3973
+[2017.09.01-05.20.40:790][929]LogWindows:Error: UE4Editor-UnrealEd.dll!0x00000000EF0C8D86
+[2017.09.01-05.20.40:791][929]LogWindows:Error: UE4Editor.exe!0x000000000264E2B2
+[2017.09.01-05.20.40:791][929]LogWindows:Error: UE4Editor.exe!0x000000000263F0B0
+[2017.09.01-05.20.40:791][929]LogWindows:Error: UE4Editor.exe!0x000000000263F12A
+[2017.09.01-05.20.40:791][929]LogWindows:Error: UE4Editor.exe!0x0000000002650CF9
+[2017.09.01-05.20.40:792][929]LogWindows:Error: UE4Editor.exe!0x00000000026525F7
+[2017.09.01-05.20.40:792][929]LogWindows:Error: KERNEL32.DLL!0x000000003B952774
+[2017.09.01-05.20.40:792][929]LogWindows:Error: ntdll.dll!0x000000003C570D51
+[2017.09.01-05.20.40:792][929]LogWindows:Error: ntdll.dll!0x000000003C570D51
+[2017.09.01-05.20.40:792][929]LogWindows:Error: 
+[2017.09.01-05.20.40:844][929]LogExit: Executing StaticShutdownAfterError
+[2017.09.01-05.20.41:362][929]LogWindows: FPlatformMisc::RequestExit(1)
+[2017.09.01-05.20.41:392][929]Log file closed, 09/01/17 00:20:41

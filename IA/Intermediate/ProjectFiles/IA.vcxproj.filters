@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\IA.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{883B7FB9-8573-46D4-8FC0-41AD6A9A9317}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\IA.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\IAEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{C8189AE1-DD3E-4162-9794-A89702360232}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\IA">
+      <UniqueIdentifier>{B4AE922F-C2BC-4FC9-B5B3-DD44068219AB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\IA\IA.Build.cs">
+      <Filter>Source\IA</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\IA\IA.cpp">
+      <Filter>Source\IA</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\IA\IA.h">
+      <Filter>Source\IA</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\IA\PathFindingComponent.cpp">
+      <Filter>Source\IA</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\IA\PathFindingComponent.h">
+      <Filter>Source\IA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\IA\PathAIController.h">
+      <Filter>Source\IA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\IA\PathAIController.cpp">
+      <Filter>Source\IA</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
