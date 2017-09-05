@@ -33,8 +33,11 @@ void APathAIController::BeginPlay()
 	MoveDirections = { FVector2D(1,0),FVector2D(-1,0),FVector2D(0,1),FVector2D(0,-1) };
 	ControlledPawn = GetPawn();
 	Dest = ControlledPawn->GetActorLocation();
-	Dest = MapIndexToWorldLocation(WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y)));
-	AStar();
+	if (ControlledPawn)
+	{
+		//Dest = MapIndexToWorldLocation(WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y)));
+		AStar();
+	}
 }
 
 TArray<TArray<float>>map;
@@ -50,88 +53,62 @@ void APathAIController::AStar()
 	TArray<FVector2D> templates;
 	templates.Init({ 0,0 }, MAP_WIDTH);
 	Parentmap.Init(templates, MAP_HEIGHT);
+
 	TArray<float> t;
 	t.Init(0, MAP_WIDTH);
 	mapG.Init(t, MAP_HEIGHT);
 	t.Init(-1, MAP_WIDTH);
 	map.Init(t, MAP_HEIGHT);
 
-	open.HeapPush({ DistanceTo(FVector::ZeroVector), FVector2D::ZeroVector },MapOperator());
-	auto cont = 0;
-	while (open.Num()!=0 && cont!=200) 
+	open.HeapPush({ DistanceTo(WorldCordinatesToMapIndex(FVector2D::ZeroVector)), WorldCordinatesToMapIndex(FVector2D::ZeroVector) },MapOperator());
+	int32 cont = 0;
+	while (open.Num()!=0 && cont!=75) 
 	{
 		Map aux; open.HeapPop(aux, MapOperator(), false);
-		auto auxIndex = WorldCordinatesToMapIndex(aux.position);
-		auto destIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
-		if (auxIndex==destIndex)break;
-		for (int32 i = 0; i < MoveDirections.Num(); i++)
+		UE_LOG(LogTemp,Warning,TEXT("%s"),*aux.position.ToString())
+		for (int k = 0; k < open.Num(); k++) 
 		{
-			float newX = aux.position.X + (MoveDirections[i].X*50.f), newY = aux.position.Y + (MoveDirections[i].Y*50.f);
-			if (CheckMap(FVector2D(newX,newY))/*Check Edges*/) 
+			UE_LOG(LogTemp,Warning,TEXT("Pos:%s, weight:%f"),*open[k].position.ToString(),open[k].weight)
+		}
+		if (aux.position == FVector2D(Dest.X, Dest.Y)) break;
+		for (int32 i = 0; i < MoveDirections.Num(); i++) 
+		{
+			FVector2D newPosition = aux.position + MoveDirections[i];
+			if (CheckMap(newPosition))
 			{
-				int32 G = mapG[auxIndex.Y][auxIndex.X] + 50;
-				auto newZ = ControlledPawn->GetActorLocation().Z;
-			//		UE_LOG(LogTemp,Warning,TEXT("IN LOOP"))
-				float F = G + DistanceTo(FVector(newX, newY,newZ));
-				//UE_LOG(LogTemp,Warning,TEXT("%f OUT LOOP"),F)
-				auto newIndex = WorldCordinatesToMapIndex(FVector2D(newX, newY));
-				if ((map[newIndex.Y][newIndex.X] == -1 || map[newIndex.Y][newIndex.X] > F) && closed.Find(newIndex))
+				float G = mapG[aux.position.Y][aux.position.X] + 1;
+				float F = G + DistanceTo(newPosition);
+				if ((map[newPosition.Y][newPosition.X] == -1 || map[newPosition.Y][newPosition.X] > F) && closed.Find(newPosition))
 				{
-					Parentmap[newIndex.Y][newIndex.X] = aux.position;
-					map[newIndex.Y][newIndex.X] = F;
-					mapG[newIndex.Y][newIndex.X] = G;
-					auto var = MapIndexToWorldLocation(newIndex);
-					open.HeapPush(Map({ F, /*FVector2D(var.X,var.Y)*/FVector2D(newX,newY) }),MapOperator());
+					Parentmap[newPosition.Y][newPosition.X] = aux.position;
+					map[newPosition.Y][newPosition.X] = F;
+					mapG[newPosition.Y][newPosition.X] = G;
+					open.HeapPush(Map({ F, newPosition }), MapOperator());
 				}
 			}
 		}
-		/*Print open array*/
-		UE_LOG(LogTemp, Warning, TEXT("Iteration %d:"),cont)
-		UE_LOG(LogTemp,Warning,TEXT("OPEN"))
-		for (int32 k = 0; k < open.Num(); k++) 
-		{
-			UE_LOG(LogTemp,Warning,TEXT("%d: %f %s"),k,open[k].weight,*open[k].position.ToString())
-		}
-		closed.Push(auxIndex); cont++;
-		UE_LOG(LogTemp,Warning,TEXT("Closed"))
-		for (int i = 0; i < closed.Num(); i++)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("%s"), *closed[i].ToString())
-		}
-	}/*
-	for (int i = 0; i < closed.Num(); i++)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *closed[i].ToString())
-	}*/
-	auto StartIndex = WorldCordinatesToMapIndex(FVector2D::ZeroVector);
+		closed.Push(aux.position);
+		cont++;
+	}	
+	/*auto StartIndex = WorldCordinatesToMapIndex(FVector2D::ZeroVector);
 	auto EndIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
 
 	UE_LOG(LogTemp,Warning,TEXT("STARTING POINT:%s ENDINGPOINT: %s"),*StartIndex.ToString(),*EndIndex.ToString())
 	Parentmap[StartIndex.Y][StartIndex.X] = { 0,0 };
 	map[EndIndex.Y][EndIndex.X] = 0;
-	auto NextDest = pathFinder(Parentmap[EndIndex.Y][EndIndex.X]);
+	auto NextDest = pathFinder(Parentmap[EndIndex.Y][EndIndex.X]);*/
 	//UE_LOG(LogTemp,Warning,TEXT("%s"),*NextDest.ToString())
 }
 
 FVector2D APathAIController::WorldCordinatesToMapIndex(FVector2D WorldLocation)
 {
-	if (CheckMap(WorldLocation)) 
-	{
-		//UE_LOG(LogTemp, Warning, TEXT("Input: %s"), *WorldLocation.ToString())
 		int x = FPlatformMath::CeilToInt((WorldLocation.X + 1900.f) / MAP_BOX_SIZE);
 		int y = FPlatformMath::CeilToInt((WorldLocation.Y + 1900.f) / MAP_BOX_SIZE);
-		//UE_LOG(LogTemp, Warning, TEXT("Output: %s"), *FVector2D(x, y).ToString())
 		return FVector2D(x, y);
-	}
-	return FVector2D();
 }
 
 FVector APathAIController::MapIndexToWorldLocation(FVector2D MapIndex)
 {
-	/*
-	LogTemp:Warning: Input: X=40.000 Y=38.000
-	LogTemp:Warning: Input: X=125.000 Y=25.000 Z=190.000
-	*/
 	if (CheckMap(MapIndex))
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Input: %s"), *MapIndex.ToString())
@@ -145,17 +122,20 @@ FVector APathAIController::MapIndexToWorldLocation(FVector2D MapIndex)
 
 bool APathAIController::CheckMap(FVector2D V)
 {
-	return V.X >= -1900.f&&V.X <= 1900.f&&V.Y >= -1900.f&&V.Y <= 1900.f;
+	return V.X >= 0 && V.X < 76 && V.Y >= 0 && V.Y < 76;
 }
 //TODO Change to Manhattan cause this garbage isn´t working
-float APathAIController::DistanceTo(FVector _Dest)
+float APathAIController::DistanceTo(FVector2D _Dest)
 {
-	FVector2D _DestIndex = WorldCordinatesToMapIndex(FVector2D(_Dest.X, _Dest.Y));
 	FVector2D DestIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
-	FVector2D R = DestIndex - _DestIndex;
-	float r = R.Size();
-	UE_LOG(LogTemp, Warning, TEXT("DistanceTo: %f Points: %s %s"), r, *_DestIndex.ToString(), *DestIndex.ToString())
-	return r;
+	if (CheckMap(DestIndex))
+	{
+		FVector2D R = DestIndex - _Dest;//38,38
+		float r = R.Size();
+		//TODO try manhattan
+		return r;
+	}
+	return -1.f;
 }
 
 FVector2D APathAIController::pathFinder(FVector2D position)
