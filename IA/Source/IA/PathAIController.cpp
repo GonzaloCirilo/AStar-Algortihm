@@ -22,10 +22,10 @@ struct MapOperator
 };
 
 //x
-#define MAP_WIDTH 76
+#define MAP_WIDTH 38
 //y
-#define MAP_HEIGHT 76
-#define MAP_BOX_SIZE 50
+#define MAP_HEIGHT 38
+#define MAP_BOX_SIZE 100
 
 void APathAIController::BeginPlay()
 {
@@ -35,7 +35,8 @@ void APathAIController::BeginPlay()
 	Dest = ControlledPawn->GetActorLocation();
 	if (ControlledPawn)
 	{
-		//Dest = MapIndexToWorldLocation(WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y)));
+		DestIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
+		UE_LOG(LogTemp, Warning, TEXT("DEST: %s"), *DestIndex.ToString());
 		AStar();
 	}
 }
@@ -62,21 +63,17 @@ void APathAIController::AStar()
 
 	open.HeapPush({ DistanceTo(WorldCordinatesToMapIndex(FVector2D::ZeroVector)), WorldCordinatesToMapIndex(FVector2D::ZeroVector) },MapOperator());
 	int32 cont = 0;
-	while (open.Num()!=0 && cont!=75) 
+	while (open.Num()!=0 /*&& cont!=75*/) 
 	{
 		Map aux; open.HeapPop(aux, MapOperator(), false);
 		UE_LOG(LogTemp,Warning,TEXT("%s"),*aux.position.ToString())
-		for (int k = 0; k < open.Num(); k++) 
-		{
-			UE_LOG(LogTemp,Warning,TEXT("Pos:%s, weight:%f"),*open[k].position.ToString(),open[k].weight)
-		}
-		if (aux.position == FVector2D(Dest.X, Dest.Y)) break;
+		if (aux.position == DestIndex) break;
 		for (int32 i = 0; i < MoveDirections.Num(); i++) 
 		{
 			FVector2D newPosition = aux.position + MoveDirections[i];
 			if (CheckMap(newPosition))
 			{
-				float G = mapG[aux.position.Y][aux.position.X] + 1;
+				float G = mapG[aux.position.Y][aux.position.X] + MAP_BOX_SIZE;
 				float F = G + DistanceTo(newPosition);
 				if ((map[newPosition.Y][newPosition.X] == -1 || map[newPosition.Y][newPosition.X] > F) && closed.Find(newPosition))
 				{
@@ -91,13 +88,10 @@ void APathAIController::AStar()
 		cont++;
 	}	
 	/*auto StartIndex = WorldCordinatesToMapIndex(FVector2D::ZeroVector);
-	auto EndIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
-
-	UE_LOG(LogTemp,Warning,TEXT("STARTING POINT:%s ENDINGPOINT: %s"),*StartIndex.ToString(),*EndIndex.ToString())
 	Parentmap[StartIndex.Y][StartIndex.X] = { 0,0 };
-	map[EndIndex.Y][EndIndex.X] = 0;
-	auto NextDest = pathFinder(Parentmap[EndIndex.Y][EndIndex.X]);*/
-	//UE_LOG(LogTemp,Warning,TEXT("%s"),*NextDest.ToString())
+	map[DestIndex.Y][DestIndex.X] = 0;
+	auto NextDest = pathFinder(Parentmap[DestIndex.Y][DestIndex.X]);
+	UE_LOG(LogTemp,Warning,TEXT("%s"),*NextDest.ToString())*/
 }
 
 FVector2D APathAIController::WorldCordinatesToMapIndex(FVector2D WorldLocation)
@@ -122,7 +116,7 @@ FVector APathAIController::MapIndexToWorldLocation(FVector2D MapIndex)
 
 bool APathAIController::CheckMap(FVector2D V)
 {
-	return V.X >= 0 && V.X < 76 && V.Y >= 0 && V.Y < 76;
+	return V.X >= 0 && V.X < MAP_WIDTH && V.Y >= 0 && V.Y < MAP_HEIGHT;
 }
 //TODO Change to Manhattan cause this garbage isn´t working
 float APathAIController::DistanceTo(FVector2D _Dest)
@@ -130,9 +124,10 @@ float APathAIController::DistanceTo(FVector2D _Dest)
 	FVector2D DestIndex = WorldCordinatesToMapIndex(FVector2D(Dest.X, Dest.Y));
 	if (CheckMap(DestIndex))
 	{
-		FVector2D R = DestIndex - _Dest;//38,38
-		float r = R.Size();
+		//FVector2D R = DestIndex - _Dest;//38,38
+		//float r = R.Size();
 		//TODO try manhattan
+		float r = (FPlatformMath::Abs(_Dest.X - Dest.X) + FPlatformMath::Abs(_Dest.Y - Dest.Y)) * 100;
 		return r;
 	}
 	return -1.f;

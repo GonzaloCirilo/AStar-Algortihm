@@ -16,6 +16,8 @@ class IA_API APathAIController : public AAIController
 
 		FVector Dest;
 
+	FVector2D DestIndex;
+
 private:
 	virtual void Tick(float DeltaTime)override;
 
@@ -30,8 +32,12 @@ private:
 	bool CheckMap(FVector2D);
 
 	//Heuristic for Astar
-	float DistanceTo(FVector Dest);
+	float DistanceTo(FVector2D Dest);
+
+	FVector2D pathFinder(FVector2D);
 
 	APawn* ControlledPawn;
+
+	TArray<FVector2D> MoveDirections;
 	
 };
