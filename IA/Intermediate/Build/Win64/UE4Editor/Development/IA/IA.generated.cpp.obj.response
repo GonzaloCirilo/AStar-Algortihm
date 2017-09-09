@@ -22,9 +22,9 @@
 /wd4838
 /w44668
 /I "C:\Program Files\Epic Games\UE_4.16\Engine\Source"
-/I "C:\Users\Usuario\Documents\Unreal Projects\IA\Source"
-/I "C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Inc\IA"
-/I "C:\Users\Usuario\Documents\Unreal Projects\IA\Source\IA"
+/I D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Source
+/I D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Intermediate\Build\Win64\UE4Editor\Inc\IA
+/I D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Source\IA
 /I "C:\Program Files\Epic Games\UE_4.16\Engine\Source\Runtime\Core\Public"
 /I "C:\Program Files\Epic Games\UE_4.16\Engine\Source\Runtime\Core\Public\Internationalization"
 /I "C:\Program Files\Epic Games\UE_4.16\Engine\Source\Runtime\Core\Public\Async"
@@ -316,9 +316,9 @@
 /FI"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Yu"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Fp"C:\Program Files\Epic Games\UE_4.16\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Inc\IA\IA.generated.cpp"
-/FI"C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\IA\Definitions.IA.h"
-/Fo"C:\Users\Usuario\Documents\Unreal Projects\IA\Intermediate\Build\Win64\UE4Editor\Development\IA\IA.generated.cpp.obj"
+"D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Intermediate\Build\Win64\UE4Editor\Inc\IA\IA.generated.cpp"
+/FI"D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Intermediate\Build\Win64\UE4Editor\Development\IA\Definitions.IA.h"
+/Fo"D:\Gonzalo\Gonzalo-01\Unreal\IA-Protoype\IA\Intermediate\Build\Win64\UE4Editor\Development\IA\IA.generated.cpp.obj"
 /TP
 /GR-
 /W4

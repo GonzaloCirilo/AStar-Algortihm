@@ -14,8 +14,10 @@ class IA_API APathAIController : public AAIController
 {
 	GENERATED_BODY()
 
-		FVector Dest;
+	FVector Dest;
+	FVector PlayerLocation;
 
+	FVector2D PlayerLocationIndex;
 	FVector2D DestIndex;
 
 private:
@@ -34,10 +36,12 @@ private:
 	//Heuristic for Astar
 	float DistanceTo(FVector2D Dest);
 
-	FVector2D pathFinder(FVector2D);
+	void pathFinder(FVector2D);
+
 
 	APawn* ControlledPawn;
 
 	TArray<FVector2D> MoveDirections;
+	TArray<FVector> Path;
 	
 };
