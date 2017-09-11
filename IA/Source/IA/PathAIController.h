@@ -34,7 +34,7 @@ private:
 	bool CheckMap(FVector2D);
 
 	//Heuristic for Astar
-	float DistanceTo(FVector2D Dest);
+	float Manhattan(FVector2D Dest);
 
 	void pathFinder(FVector2D);
 
@@ -44,7 +44,8 @@ private:
 
 	TArray<FVector2D> MoveDirections;
 	TArray<FVector> Path;
-
-	float MovementSpeed=50.f;
+	TArray<TArray<float>>map;
+	TArray<TArray<FVector2D>>Parentmap;
+	float MovementSpeed=100.f;
 	
 };
