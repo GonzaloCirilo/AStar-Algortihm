@@ -29,8 +29,6 @@ struct MapOperator
 void APathAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	MoveDirections = { FVector2D(1,0),FVector2D(-1,0),FVector2D(0,1),FVector2D(0,-1),FVector2D(-1,-1) ,FVector2D(1,-1),FVector2D(-1,1),FVector2D(1,1) };
-	ControlledPawn = GetPawn();
 	if (ControlledPawn)
 	{
 		AStar();
@@ -39,6 +37,7 @@ void APathAIController::BeginPlay()
 
 void APathAIController::AStar()
 {
+	ControlledPawn = GetPawn();
 	Dest = ControlledPawn->GetActorLocation();
 	PlayerLocation = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
 	PlayerLocationIndex = WorldCordinatesToMapIndex(FVector2D(PlayerLocation.X, PlayerLocation.Y));
@@ -46,7 +45,6 @@ void APathAIController::AStar()
 
 	TArray<Map>open;
 	TArray<FVector2D>closed;
-
 	TArray<TArray<float>>mapG;
 
 	//Initializing the arrays
@@ -68,7 +66,7 @@ void APathAIController::AStar()
 		for (int32 i = 0; i < MoveDirections.Num(); i++) 
 		{
 			FVector2D newPosition = aux.position + MoveDirections[i];
-			if (CheckMap(newPosition) && CheckWalls(aux.position,MoveDirections[i],newPosition))
+			if (CheckMap(newPosition) /*&& CheckWalls(aux.position)*/ && CheckEdges(aux.position,MoveDirections[i]))
 			{
 				float G = FPlatformMath::Abs(MoveDirections[i].X)==FPlatformMath::Abs(MoveDirections[i].Y)? mapG[aux.position.Y][aux.position.X] + (MAP_BOX_SIZE*1.4): mapG[aux.position.Y][aux.position.X] + MAP_BOX_SIZE;
 				float F = G + Manhattan(newPosition);
@@ -77,7 +75,10 @@ void APathAIController::AStar()
 					Parentmap[newPosition.Y][newPosition.X] = aux.position;
 					map[newPosition.Y][newPosition.X] = F;
 					mapG[newPosition.Y][newPosition.X] = G;
-					open.HeapPush(Map({ F, newPosition }), MapOperator());
+					if (CheckWalls(newPosition))
+					{
+						open.HeapPush(Map({ F, newPosition }), MapOperator());
+					}
 				}
 			}
 		}
@@ -135,7 +136,6 @@ void APathAIController::pathFinder(FVector2D position)
 		map[p.Y][p.X] = 0;
 		s.Push(Parentmap[p.Y][p.X]);
 	}
-
 	//TODO if it gets weird comment the following if
 	if (Path.Num() > 3)
 	{
@@ -149,42 +149,39 @@ void APathAIController::pathFinder(FVector2D position)
 	}
 }
 
-bool APathAIController::CheckWalls(FVector2D position, FVector2D movedir,FVector2D newPosition)
+bool APathAIController::CheckWalls(FVector2D position)
 {
+	if (map[position.Y][position.X] == -2) 
+	{
+		return true;
+	}
 	FHitResult HitResult1, HitResult2, HitResult3, HitResult4;
-	FVector2D invert = FVector2D(movedir.Y, movedir.X);
-	FVector2D checkwall1 = position + (invert * 1);
-	FVector2D checkwall2 = position + (invert*-1);
-	FVector2D checkwall3 = position - movedir;
-	GetWorld()->LineTraceSingleByChannel(HitResult1, MapIndexToWorldLocation(position), MapIndexToWorldLocation(newPosition), ECollisionChannel::ECC_WorldStatic);
-	GetWorld()->LineTraceSingleByChannel(HitResult2, MapIndexToWorldLocation(position), MapIndexToWorldLocation(checkwall1), ECollisionChannel::ECC_WorldStatic);
-	GetWorld()->LineTraceSingleByChannel(HitResult3, MapIndexToWorldLocation(position), MapIndexToWorldLocation(checkwall2), ECollisionChannel::ECC_WorldStatic);
-	GetWorld()->LineTraceSingleByChannel(HitResult4, MapIndexToWorldLocation(position), MapIndexToWorldLocation(checkwall3), ECollisionChannel::ECC_WorldStatic);
-	return !HitResult1.GetActor() && !HitResult2.GetActor() && !HitResult3.GetActor();
+	GetWorld()->LineTraceSingleByChannel(HitResult1, MapIndexToWorldLocation(position - (1, 0)), MapIndexToWorldLocation(position + (1, 0)), ECollisionChannel::ECC_WorldStatic);
+	GetWorld()->LineTraceSingleByChannel(HitResult2, MapIndexToWorldLocation(position - (0, 1)), MapIndexToWorldLocation(position + (0, 1)), ECollisionChannel::ECC_WorldStatic);
+	GetWorld()->LineTraceSingleByChannel(HitResult3, MapIndexToWorldLocation(position - (1, 1)), MapIndexToWorldLocation(position + (1, 1)), ECollisionChannel::ECC_WorldStatic);
+	GetWorld()->LineTraceSingleByChannel(HitResult4, MapIndexToWorldLocation(position - (1, -1)), MapIndexToWorldLocation(position + (1, -1)), ECollisionChannel::ECC_WorldStatic);
+	if (!(!HitResult1.GetActor() && !HitResult2.GetActor() && !HitResult3.GetActor() && !HitResult3.GetActor() && !HitResult4.GetActor()))
+	{
+		map[position.Y][position.X] = -2;
+	}
+	return !HitResult1.GetActor() && !HitResult2.GetActor() && !HitResult3.GetActor() && !HitResult3.GetActor() && !HitResult4.GetActor();
 }
 
-//76*76 array map from -1900 to 1900
-void APathAIController::Tick(float DeltaTime)
+bool APathAIController::CheckEdges(FVector2D position, FVector2D movedir)
 {
-	Super::Tick(DeltaTime);
-	if (PlayerLocation != GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation())
+	if (FPlatformMath::Abs(movedir.X) != FPlatformMath::Abs(movedir.Y))return true;
+	return map[position.Y - movedir.Y][position.X] != -2 && map[position.Y][position.X - movedir.X] != -2;
+}
+
+void APathAIController::Movement(float DeltaTime)
+{
+	//UE_LOG(LogTemp, Warning, TEXT("sise: %d"),Path.Num())
+	if (Path.Num() > 1)
 	{
-		AStar();
-	}
-	for (int i = 0; i < Path.Num()-1; i++)
-	{
-		if (Path.Num() > 1)
-		{
-			//DrawDebugLine(GetWorld(), Path[i], Path[i + 1], FColor::Green, false, -1.0, (uint8)'\000', 10);
-			DrawDebugPoint(GetWorld(),Path[i],10,FColor::Red);
-		}
-	}
-	//movement
-	if (Path.Num() > 1) 
-	{	
 		auto MyLocation = GetPawn()->GetActorLocation();
 		FVector MyLocationRounded = FVector(FPlatformMath::RoundToInt(MyLocation.X), FPlatformMath::RoundToInt(MyLocation.Y), FPlatformMath::RoundToInt(MyLocation.Z));
-		if (WorldCordinatesToMapIndex(FVector2D(MyLocationRounded.X,MyLocationRounded.Y)) == WorldCordinatesToMapIndex(FVector2D(Path[1].X,Path[1].Y)))
+		
+		if (WorldCordinatesToMapIndex(FVector2D(MyLocationRounded.X, MyLocationRounded.Y)) == WorldCordinatesToMapIndex(FVector2D(Path[1].X, Path[1].Y)))
 		{
 			Path.RemoveAt(1);
 		}
@@ -197,4 +194,16 @@ void APathAIController::Tick(float DeltaTime)
 			GetPawn()->AddActorWorldOffset(Dir, true);
 		}
 	}
+}
+
+//76*76 array map from -1900 to 1900
+void APathAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (PlayerLocation != GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation())
+	{
+		AStar();
+	}
+	//movement
+	Movement(DeltaTime);
 }

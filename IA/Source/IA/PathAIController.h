@@ -38,14 +38,18 @@ private:
 
 	void pathFinder(FVector2D);
 
-	bool CheckWalls(FVector2D position, FVector2D movedir, FVector2D newposition);
+	bool CheckWalls(FVector2D position);
 
-	APawn* ControlledPawn;
+	bool CheckEdges(FVector2D position, FVector2D movedir);
 
-	TArray<FVector2D> MoveDirections;
+	void Movement(float DeltaTime);
+
+	APawn* ControlledPawn = GetPawn();
+
+	TArray<FVector2D> MoveDirections={ FVector2D(1,0),FVector2D(-1,0),FVector2D(0,1),FVector2D(0,-1),FVector2D(-1,-1) ,FVector2D(1,-1),FVector2D(-1,1),FVector2D(1,1) };;
 	TArray<FVector> Path;
 	TArray<TArray<float>>map;
 	TArray<TArray<FVector2D>>Parentmap;
-	float MovementSpeed=100.f;
+	float MovementSpeed=200.f;
 	
 };
