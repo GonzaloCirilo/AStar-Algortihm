@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "TwinStickShooter.h"
 #include "PathAIController.generated.h"
 
 /**
@@ -27,6 +28,8 @@ private:
 
 	void AStar();
 
+	ATwinStickShooter* GetControlledShooter() const;
+
 	FVector2D WorldCordinatesToMapIndex(FVector2D WorldLocation);
 
 	FVector MapIndexToWorldLocation(FVector2D MapIndex);
@@ -44,12 +47,12 @@ private:
 
 	void Movement(float DeltaTime);
 
-	APawn* ControlledPawn = GetPawn();
+	APawn* ControlledPawn;
 
-	TArray<FVector2D> MoveDirections={ FVector2D(1,0),FVector2D(-1,0),FVector2D(0,1),FVector2D(0,-1),FVector2D(-1,-1) ,FVector2D(1,-1),FVector2D(-1,1),FVector2D(1,1) };;
+	TArray<FVector2D> MoveDirections={ FVector2D(1,0),FVector2D(-1,0),FVector2D(0,1),FVector2D(0,-1),FVector2D(-1,-1) ,FVector2D(1,-1),FVector2D(-1,1),FVector2D(1,1) };
 	TArray<FVector> Path;
 	TArray<TArray<float>>map;
 	TArray<TArray<FVector2D>>Parentmap;
-	float MovementSpeed=200.f;
+	//float MovementSpeed=200.f;
 	
 };

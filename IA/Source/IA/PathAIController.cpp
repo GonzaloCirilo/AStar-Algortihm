@@ -21,23 +21,30 @@ struct MapOperator
 };
 
 //x
-#define MAP_WIDTH 40
+#define MAP_WIDTH 46
 //y
-#define MAP_HEIGHT 40
+#define MAP_HEIGHT 46
 #define MAP_BOX_SIZE 100
+
+#define MID_SIZE 2600.f
 
 void APathAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	if (ControlledPawn)
+	if (GetControlledShooter())
 	{
 		AStar();
 	}
 }
 
+ATwinStickShooter* APathAIController::GetControlledShooter() const
+{
+	return Cast<ATwinStickShooter>(GetPawn());
+}
+
 void APathAIController::AStar()
 {
-	ControlledPawn = GetPawn();
+	ControlledPawn = GetControlledShooter();
 	Dest = ControlledPawn->GetActorLocation();
 	PlayerLocation = GetWorld()->GetFirstPlayerController()->GetPawn()->GetActorLocation();
 	PlayerLocationIndex = WorldCordinatesToMapIndex(FVector2D(PlayerLocation.X, PlayerLocation.Y));
@@ -91,8 +98,8 @@ void APathAIController::AStar()
 
 FVector2D APathAIController::WorldCordinatesToMapIndex(FVector2D WorldLocation)
 {
-		int x = FPlatformMath::CeilToInt((WorldLocation.X + 2000.f) / MAP_BOX_SIZE);
-		int y = FPlatformMath::CeilToInt((WorldLocation.Y + 2000.f) / MAP_BOX_SIZE);
+		int x = FPlatformMath::CeilToInt((WorldLocation.X + MID_SIZE) / MAP_BOX_SIZE);
+		int y = FPlatformMath::CeilToInt((WorldLocation.Y + MID_SIZE) / MAP_BOX_SIZE);
 		return FVector2D(x, y);
 }
 
@@ -100,8 +107,8 @@ FVector APathAIController::MapIndexToWorldLocation(FVector2D MapIndex)
 {
 	if (CheckMap(MapIndex))
 	{
-		float WX = MapIndex.X*MAP_BOX_SIZE + (MAP_BOX_SIZE / 2) - 2000.f;
-		float WY = MapIndex.Y*MAP_BOX_SIZE + (MAP_BOX_SIZE / 2) - 2000.f;
+		float WX = MapIndex.X*MAP_BOX_SIZE + (MAP_BOX_SIZE / 2) - MID_SIZE;
+		float WY = MapIndex.Y*MAP_BOX_SIZE + (MAP_BOX_SIZE / 2) - MID_SIZE;
 		return FVector(WX, WY, ControlledPawn->GetActorLocation().Z);
 	}
 	return FVector();
@@ -136,12 +143,10 @@ void APathAIController::pathFinder(FVector2D position)
 		map[p.Y][p.X] = 0;
 		s.Push(Parentmap[p.Y][p.X]);
 	}
-	//TODO if it gets weird comment the following if
 	if (Path.Num() > 3)
 	{
 		Path.RemoveAt(1);
 	}
-	///up to here
 	if (Path.Num() > 1)
 	{
 		Path.RemoveAt(Path.Num() - 1);
@@ -169,16 +174,16 @@ bool APathAIController::CheckWalls(FVector2D position)
 
 bool APathAIController::CheckEdges(FVector2D position, FVector2D movedir)
 {
+	if (!CheckMap(position)|| !CheckMap(position - movedir))return false;
 	if (FPlatformMath::Abs(movedir.X) != FPlatformMath::Abs(movedir.Y))return true;
 	return map[position.Y - movedir.Y][position.X] != -2 && map[position.Y][position.X - movedir.X] != -2;
 }
 
 void APathAIController::Movement(float DeltaTime)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("sise: %d"),Path.Num())
 	if (Path.Num() > 1)
 	{
-		auto MyLocation = GetPawn()->GetActorLocation();
+		auto MyLocation = GetControlledShooter()->GetActorLocation();
 		FVector MyLocationRounded = FVector(FPlatformMath::RoundToInt(MyLocation.X), FPlatformMath::RoundToInt(MyLocation.Y), FPlatformMath::RoundToInt(MyLocation.Z));
 		
 		if (WorldCordinatesToMapIndex(FVector2D(MyLocationRounded.X, MyLocationRounded.Y)) == WorldCordinatesToMapIndex(FVector2D(Path[1].X, Path[1].Y)))
@@ -187,12 +192,7 @@ void APathAIController::Movement(float DeltaTime)
 		}
 		FVector Dir = -MyLocation + Path[1];
 		Dir.Normalize();
-		Dir *= MovementSpeed*DeltaTime;
-		if (Dir.Size() > 0)
-		{
-			GetPawn()->SetActorRotation(Dir.Rotation());
-			GetPawn()->AddActorWorldOffset(Dir, true);
-		}
+		GetControlledShooter()->Movement(Dir,DeltaTime);
 	}
 }
 
@@ -204,6 +204,5 @@ void APathAIController::Tick(float DeltaTime)
 	{
 		AStar();
 	}
-	//movement
 	Movement(DeltaTime);
 }
