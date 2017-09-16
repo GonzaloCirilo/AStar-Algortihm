@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	float MoveSpeed=100;
+	float MoveSpeed=200.f;
 
 public:	
 
