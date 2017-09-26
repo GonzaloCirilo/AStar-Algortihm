@@ -1,4 +1,5 @@
 # IA-Protoype
-Trabajo de IA realizado con UE4. 
-Aun es un prototipo experimental y puede tener fallos
-Si no se logra lo hare en winform :)
+Trabajo de IA realizado con UE4 para el cruso de Inteligencia Artificial.  
+El juego desarrolado es un tipo de Twin Shooter.
+
+
